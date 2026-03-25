@@ -1,0 +1,121 @@
+/* Top bar*/
+nav {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ba8097;
+}
+
+/*Unordered list to hold buttons*/
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+/* Individual buttons*/
+nav ul li a {
+  display: inline-block;
+  padding: 9px 18px;
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #222;
+  background: #f9f9f9;
+}
+
+/* Hero section*/
+.hero {
+  background: #ba8097;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+/*Filter bar*/
+.Filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.Filter span {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/*Trending*/
+.Trending {
+  padding: 2rem;
+}
+
+.Trending h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Card grid*/
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 1.5rem;
+}
+
+/* Cards*/
+.card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;       
+}
+
+.card img {
+  width: 100%;            
+  height: 160px;
+  object-fit: cover;      
+}
+
+.card h3 {
+  padding: 0.75rem 1rem 0.25rem;
+  font-size: 1rem;
+}
+
+.card p {
+  padding: 0 1rem 1rem;
+  color: #666;
+  font-size: 13px;
+}
+
+/*Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #eee;
+  color: #888;
+  font-size: 13px;
+  margin-top: 2rem;
+}
