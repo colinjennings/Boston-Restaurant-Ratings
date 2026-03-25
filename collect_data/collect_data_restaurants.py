@@ -3,7 +3,7 @@ import pandas as pd
 import time
 
 # put your own api key from places_api
-API_KEY = "your_api_key"
+API_KEY = ""
 
 
 def search_restaurants(query, page_token=None):
@@ -32,45 +32,14 @@ def get_place_details(place_id):
     return response.json()
 
 
-# Search queries to maximize coverage across Boston neighborhoods and cuisines
-queries = [
-    "restaurants in Boston MA",
-    "restaurants in Back Bay Boston",
-    "restaurants in South End Boston",
-    "restaurants in North End Boston",
-    "restaurants in Fenway Boston",
-    "restaurants in Allston Boston",
-    "restaurants in Brighton Boston",
-    "restaurants in Brookline MA",
-    "restaurants in Cambridge MA",
-    "restaurants in Somerville MA",
-    "restaurants in Jamaica Plain Boston",
-    "restaurants in Dorchester Boston",
-    "restaurants in Charlestown Boston",
-    "restaurants in Beacon Hill Boston",
-    "restaurants in Chinatown Boston",
-    "restaurants in Seaport Boston",
-    "Italian restaurants Boston",
-    "Chinese restaurants Boston",
-    "Mexican restaurants Boston",
-    "Thai restaurants Boston",
-    "Indian restaurants Boston",
-    "Japanese restaurants Boston",
-    "Pizza Boston",
-    "Seafood restaurants Boston",
-    "Brunch Boston",
-    "Cheap eats Boston",
-    "Fine dining Boston",
-    "Korean restaurants Boston",
-    "Vietnamese restaurants Boston",
-    "Mediterranean restaurants Boston",
-]
+# open the file and get the queries
+with open("search_queries.txt") as f:
+    queries = [line.strip() for line in f if line.strip() and not line.startswith("#")]
 
 # Use dict to avoid duplicates by place_id
 all_places = {}
 
 for query in queries:
-    print(f"Searching: {query}")
 
     # First page
     results = search_restaurants(query)
@@ -147,7 +116,7 @@ def get_neighborhood(address):
 df["neighborhood"] = df["address"].apply(get_neighborhood)
 
 # Save to CSV
-df.to_csv("boston_restaurants.csv", index=False)
+df.to_csv("boston_restaurants_all.csv", index=False)
 
 print(f"\n=== DONE ===")
 print(f"Total restaurants collected: {len(df)}")

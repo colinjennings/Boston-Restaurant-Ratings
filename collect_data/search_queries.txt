@@ -1,0 +1,146 @@
+# This document casts a very wide net for resturants in Boston, Cambridge, and beyond.
+# AI was used to generate search terms
+
+# ----------- Neighborhoods -----------
+restaurants in Boston MA
+restaurants in Back Bay Boston
+restaurants in South End Boston
+restaurants in North End Boston
+restaurants in Fenway Boston
+restaurants in Allston Boston
+restaurants in Brighton Boston
+restaurants in Jamaica Plain Boston
+restaurants in Dorchester Boston
+restaurants in Charlestown Boston
+restaurants in Beacon Hill Boston
+restaurants in Chinatown Boston
+restaurants in Seaport Boston
+restaurants in Roxbury Boston
+restaurants in East Boston
+restaurants in South Boston
+restaurants in Hyde Park Boston
+restaurants in Roslindale Boston
+restaurants in West Roxbury Boston
+restaurants in Mattapan Boston
+restaurants in Mission Hill Boston
+restaurants in West End Boston
+restaurants in Financial District Boston
+restaurants in Downtown Boston
+restaurants in Leather District Boston
+restaurants in Theater District Boston
+restaurants in Bay Village Boston
+restaurants in Longwood Boston
+
+# Surrounding towns
+restaurants in Brookline MA
+restaurants in Cambridge MA
+restaurants in Somerville MA
+restaurants in Inman Square Cambridge
+restaurants in Central Square Cambridge
+restaurants in Harvard Square Cambridge
+restaurants in Kendall Square Cambridge
+restaurants in Porter Square Cambridge
+restaurants in Davis Square Somerville
+restaurants in Union Square Somerville
+restaurants in Ball Square Somerville
+restaurants in Assembly Row Somerville
+
+# Outer suburbs (may not be used in final submission)
+restaurants in Medford MA
+restaurants in Malden MA
+restaurants in Quincy MA
+restaurants in Watertown MA
+restaurants in Newton MA
+restaurants in Waltham MA
+restaurants in Everett MA
+restaurants in Chelsea MA
+restaurants in Revere MA
+restaurants in Lynn MA
+restaurants in Dedham MA
+restaurants in Milton MA
+restaurants in Canton MA
+restaurants in Needham MA
+restaurants in Wellesley MA
+restaurants in Arlington MA
+restaurants in Belmont MA
+
+# ----------- Cuisines -----------
+Italian restaurants Boston
+Chinese restaurants Boston
+Mexican restaurants Boston
+Thai restaurants Boston
+Indian restaurants Boston
+Japanese restaurants Boston
+Korean restaurants Boston
+Vietnamese restaurants Boston
+Mediterranean restaurants Boston
+Pizza Boston
+Seafood restaurants Boston
+Sushi Boston
+Ramen Boston
+Dim Sum Boston
+Taiwanese restaurants Boston
+Filipino restaurants Boston
+Malaysian restaurants Boston
+Indonesian restaurants Boston
+Burmese restaurants Boston
+Cambodian restaurants Boston
+Tibetan restaurants Boston
+Nepalese restaurants Boston
+Sri Lankan restaurants Boston
+Pakistani restaurants Boston
+Bangladeshi restaurants Boston
+Lebanese restaurants Boston
+Turkish restaurants Boston
+Persian restaurants Boston
+Israeli restaurants Boston
+Egyptian restaurants Boston
+Moroccan restaurants Boston
+Ethiopian restaurants Boston
+Eritrean restaurants Boston
+Somali restaurants Boston
+Senegalese restaurants Boston
+West African restaurants Boston
+Greek restaurants Boston
+Spanish restaurants Boston
+Portuguese restaurants Boston
+French restaurants Boston
+German restaurants Boston
+Polish restaurants Boston
+Russian restaurants Boston
+Eastern European restaurants Boston
+Brazilian restaurants Boston
+Peruvian restaurants Boston
+Colombian restaurants Boston
+Salvadoran restaurants Boston
+Haitian restaurants Boston
+Caribbean restaurants Boston
+Jamaican restaurants Boston
+Dominican restaurants Boston
+Puerto Rican restaurants Boston
+Soul food Boston
+Cajun restaurants Boston
+BBQ Boston
+Steakhouse Boston
+
+# ----------- Other -----------
+Brunch Boston
+Cheap eats Boston
+Fine dining Boston
+Breakfast Boston
+Late night food Boston
+Food trucks Boston
+Tapas Boston
+Dumplings Boston
+Poke Boston
+Sandwiches Boston
+Burgers Boston
+Wings Boston
+Tacos Boston
+Bagels Boston
+Bakery Boston
+Vegan restaurants Boston
+Vegetarian restaurants Boston
+Gluten free restaurants Boston
+Halal restaurants Boston
+Kosher restaurants Boston
