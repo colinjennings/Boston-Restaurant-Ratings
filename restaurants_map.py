@@ -1,10 +1,14 @@
 import folium
 import pandas as pd
 
-df = pd.read_csv('boston_restaurants.csv')
+df = pd.read_csv('collect_data/boston_resturants.csv')
 
-# make map centered on boston
-boston_map = folium.Map(location=[42.36, -71.06], zoom_start=12)
+# make map centered on boston, using a different tile set
+boston_map = folium.Map(
+    location=[42.36, -71.06],
+    zoom_start=12,
+    tiles="CartoDB positron"
+    )
 
 # add a marker for each restaurant, colored by price
 for i, row in df.iterrows():
@@ -31,5 +35,5 @@ for i, row in df.iterrows():
         tooltip=row['name']
     ).add_to(boston_map)
 
-boston_map.save('boston_map.html')
+boston_map.save('website_output/boston_map.html')
 print("done")
