@@ -1,0 +1,14 @@
+# from macOS
+.DS_Store
+
+# from VS Code
+.vscode/
+*.code-workspace
+
+# Editor directories and files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
