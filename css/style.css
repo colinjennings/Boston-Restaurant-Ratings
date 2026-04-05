@@ -110,6 +110,22 @@ body {
   font-size: 13px;
 }
 
+/* Interactive map */
+.map-page {
+    padding: 60px 40px;
+}
+
+.map-page h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.map-page > p {
+    color: #666;
+    margin-bottom: 40px;
+}
+
 /*Footer */
 footer {
   text-align: center;
