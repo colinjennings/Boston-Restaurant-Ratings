@@ -24,5 +24,9 @@ unmatched = gdf['neighborhood'].isna()
 result_cam = gpd.sjoin(gdf[unmatched], neighborhoods_cam[['NAME', 'geometry']], how='left', predicate='within')
 gdf.loc[unmatched, 'neighborhood'] = result_cam['NAME']
 
+
 df['neighborhood'] = gdf['neighborhood']
+
+df = df.loc[:, ~df.columns.str.startswith('Unnamed')]
+
 df.to_csv('boston_restaurants.csv', index=False)
