@@ -1,7 +1,7 @@
 import altair as alt
 import pandas as pd
 
-df = pd.read_csv('boston_restaurants.csv')
+df = pd.read_csv('collect_data/boston_restaurants.csv')
 
 # drop rows with no price info
 df = df.dropna(subset=['price_category'])
@@ -30,5 +30,5 @@ line = alt.Chart(df).mark_line(color='black', strokeDash=[5, 5]).transform_regre
 
 chart = points + line
 
-chart.save('scatter_plot.html')
-print("done")
+chart.save('website_output/scatter_plot.html')
+

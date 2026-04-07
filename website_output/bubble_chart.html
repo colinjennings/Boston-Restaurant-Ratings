@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h2 {
+      margin-bottom: 4px;
+      font-size: 18px;
+      color: #222;
+    }
+    p.subtitle {
+      font-size: 12px;
+      color: #666;
+      margin: 0 0 16px;
+    }
+    .tooltip {
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 13px;
+      pointer-events: none;
+      opacity: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      line-height: 1.6;
+    }
+    .axis-label {
+      font-size: 13px;
+      fill: #000;
+    }
+    circle:not(.legend-circle) {
+      stroke: white;
+      stroke-width: 1.5;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    circle:not(.legend-circle):hover {
+      stroke: #333;
+      stroke-width: 2;
+    }
+    
+  </style>
+</head>
+<body>
+  
+  <div class="tooltip" id="tooltip"></div>
+  <svg id="chart"></svg>
+  <script>
+    const data = [{'neighborhood': 'Allston', 'avg_transit': 39.15781893004115, 'avg_reviews': 528.9876543209876, 'count': 81}, {'neighborhood': 'Back Bay', 'avg_transit': 10.617256637168142, 'avg_reviews': 1316.929203539823, 'count': 113}, {'neighborhood': 'Brighton', 'avg_transit': 44.04871794871795, 'avg_reviews': 531.9038461538462, 'count': 52}, {'neighborhood': 'Chinatown', 'avg_transit': 17.588690476190475, 'avg_reviews': 670.0178571428571, 'count': 56}, {'neighborhood': 'Dorchester', 'avg_transit': 40.885984848484846, 'avg_reviews': 425.96590909090907, 'count': 88}, {'neighborhood': 'Downtown', 'avg_transit': 21.584273504273504, 'avg_reviews': 1006.1589743589743, 'count': 195}, {'neighborhood': 'East Boston', 'avg_transit': 38.13986486486486, 'avg_reviews': 638.027027027027, 'count': 74}, {'neighborhood': 'Fenway', 'avg_transit': 16.78611111111111, 'avg_reviews': 835.5882352941177, 'count': 102}, {'neighborhood': 'Jamaica Plain', 'avg_transit': 22.119285714285713, 'avg_reviews': 445.7, 'count': 70}, {'neighborhood': 'North End', 'avg_transit': 28.476570048309178, 'avg_reviews': 1368.0144927536232, 'count': 69}, {'neighborhood': 'Roxbury', 'avg_transit': 24.10625, 'avg_reviews': 465.975, 'count': 40}, {'neighborhood': 'South Boston', 'avg_transit': 33.69634146341463, 'avg_reviews': 559.8536585365854, 'count': 41}, {'neighborhood': 'South Boston Waterfront', 'avg_transit': 32.01875, 'avg_reviews': 1197.7777777777778, 'count': 72}, {'neighborhood': 'South End', 'avg_transit': 19.190277777777776, 'avg_reviews': 665.1190476190476, 'count': 84}, {'neighborhood': 'West Cambridge', 'avg_transit': 35.05208333333333, 'avg_reviews': 902.075, 'count': 40}];
+
+    // ── Dimensions ──────────────────────────────────────────────────────────
+    const margin = { top: 40, right: 120, bottom: 60, left: 60 };
+    const W = 800, H = 500;
+    const w = W - margin.left - margin.right;
+    const h = H - margin.top  - margin.bottom;
+
+    const svg = d3.select("#chart")
+      .attr("width",  W)
+      .attr("height", H)
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // ── Scales ──────────────────────────────────────────────────────────────
+    const xPad = 3;   // padding in minutes around data range
+    const xScale = d3.scaleLinear()
+      .domain([
+        d3.min(data, d => d.avg_transit) - xPad,
+        d3.max(data, d => d.avg_transit) + xPad
+      ])
+      .range([0, w]);
+
+    const yScale = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d.avg_reviews) * 1.1])
+      .range([h, 0]);
+
+    const rScale = d3.scaleSqrt()
+      .domain([0, d3.max(data, d => d.count)])
+      .range([8, 40]);
+
+    const color = d3.scaleOrdinal(d3.schemeTableau10)
+      .domain(data.map(d => d.neighborhood));
+
+    // ── Gridlines ───────────────────────────────────────────────────────────
+    svg.append("g")
+      .attr("class", "grid")
+      .call(
+        d3.axisLeft(yScale).tickSize(-w).tickFormat("")
+      )
+      .selectAll("line")
+      .attr("stroke", "#e0e0e0");
+    svg.selectAll(".grid .domain").remove();
+
+    svg.append("g")
+      .attr("class", "grid")
+      .attr("transform", `translate(0,${h})`)
+      .call(
+        d3.axisBottom(xScale).tickSize(-h).tickFormat("")
+      )
+      .selectAll("line")
+      .attr("stroke", "#e0e0e0");
+    svg.selectAll(".grid .domain").remove();
+
+    // --- Axes ------------------------------------------------------------------------
+    svg.append("g")
+      .attr("transform", `translate(0,${h})`)
+      .call(d3.axisBottom(xScale).ticks(6).tickFormat(d => d + " min"));
+
+    svg.append("g")
+      .call(d3.axisLeft(yScale).ticks(5).tickFormat(d => d3.format(",")(d)));
+
+    // X label
+    svg.append("text")
+      .attr("class", "axis-label")
+      .attr("x", w / 2)
+      .attr("y", h + 48)
+      .attr("text-anchor", "middle")
+      .text("Average Transit Time (minutes)");
+
+    // Y label
+    svg.append("text")
+      .attr("class", "axis-label")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -h / 2)
+      .attr("y", -48)
+      .attr("text-anchor", "middle")
+      .text("Average Review Count");
+
+    // --- Tooltip ------------------------------------------------------------------
+    const tooltip = d3.select("#tooltip");
+
+    // --- Bubbles ------------------------------------------------------------------
+    svg.selectAll("circle")
+      .data(data)
+      .join("circle")
+        .attr("cx", d => xScale(d.avg_transit))
+        .attr("cy", d => yScale(d.avg_reviews))
+        .attr("r",  d => rScale(d.count))
+        .attr("fill", d => color(d.neighborhood))
+        .attr("opacity", 0.78)
+      .on("mouseover", (event, d) => {
+        tooltip
+          .style("opacity", 1)
+          .html(`
+            <strong>${d.neighborhood}</strong><br/>
+            Avg. transit time: <b>${d.avg_transit.toFixed(1)} min</b><br/>
+            Avg. review count: <b>${d.avg_reviews.toFixed(0)}</b><br/>
+            Restaurant Count: <b>${d.count}</b>
+          `);
+      })
+      .on("mousemove", (event) => {
+        tooltip
+          .style("left", (event.pageX + 14) + "px")
+          .style("top",  (event.pageY - 28) + "px");
+      })
+      .on("mouseout", () => tooltip.style("opacity", 0));
+
+    // --- Labels ---------------------------------------------------------------
+    svg.selectAll(".label")
+      .data(data)
+      .join("text")
+        .attr("class", "label")
+        .attr("x", d => xScale(d.avg_transit))
+        .attr("y", d => yScale(d.avg_reviews)+4)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "10px")
+        .attr("fill", "black")
+        .attr("font-weight", "bold")
+        .attr("pointer-events", "none")
+        .text(d => d.neighborhood);
+
+    // --- Size legend (50, 100, 200 restaurants displayed ) ---------------------
+    const legendSizes = [50, 100, 200]; 
+    const lx = w - 10, ly = 10; 
+
+    svg.append("text")
+      .attr("x", lx)
+      .attr("y", ly - 8)
+      .attr("text-anchor", "middle")
+      .attr("font-size", "11px")
+      .attr("fill", "#555")
+      .text("# Restaurants");
+
+    let offset = 0;
+    legendSizes.forEach(s => {
+      const r = rScale(s);
+      svg.append("circle")
+        .attr("class", "legend-circle")
+        .attr("cx", lx)
+        .attr("cy", ly + offset + r)
+        .attr("r", r)
+        .attr("fill", "none")
+        .attr("stroke", "#000");
+        
+      svg.append("text")
+        .attr("x", lx + r + 6)
+        .attr("y", ly + offset + r + 4)
+        .attr("font-size", "10px")
+        .attr("fill", "#666")
+        .text(s);
+      offset += r * 1.5 + 8;
+    });
+  </script>
+</body>
+</html>

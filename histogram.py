@@ -47,4 +47,4 @@ chart = alt.Chart(df).mark_bar(opacity=0.85, cornerRadiusTopLeft=3, cornerRadius
 )
 
 
-chart.save("transit_histogram.html")
+chart.save("website_output/transit_histogram.html")

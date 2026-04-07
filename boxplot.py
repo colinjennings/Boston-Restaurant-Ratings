@@ -82,4 +82,4 @@ chart = alt.vconcat(
     titleFontSize=13
 ).configure_view(strokeWidth=0)
 
-chart.save("boxplot.html")
+chart.save("website_output/boxplot.html")
