@@ -34,9 +34,9 @@ body {
 nav {
   position: sticky;
   top: 0;
-  z-index: 100;           /* sit above everything */
+  z-index: 100;
   background: rgba(250,247,242,.92);
-  backdrop-filter: blur(10px); /* frosted glass */
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 .nav-inner {
@@ -60,7 +60,6 @@ nav {
 .nav-links a:hover { color: var(--warm); }
 
 /* TITLE */
-/* Hero Section */
 #hero {
   padding: 80px 0 64px;
   border-bottom: 1px solid var(--border);
@@ -133,10 +132,10 @@ h1 {
 .stat-value.warm  { color: var(--warm); }
 .stat-value.green { color: var(--green); }
 
-/* 01 OVERVIEW*/
+/* 01 OVERVIEW */
 .intro {
   max-width: 1350px;
-  margin: 0 auto;   /* auto centers horizontally */
+  margin: 0 auto;
   padding: 0 32px;
 }
 
@@ -205,3 +204,32 @@ section {
   font-weight: 500;
   text-align: right;
 }
+
+/* 02 VISUALIZATION */
+.viz-card {
+  background: var(--paper);
+  border: 20px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.viz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--cream);
+}
+.viz-title  { font-size: 13px; font-weight: 500; }
+.viz-body   { min-height: 340px; background: var(--cream); }
+.viz-footer { padding: 14px 18px; border-top: 1px solid var(--border); }
+.viz-takeaway-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--warm);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.viz-takeaway { font-size: 13px; color: var(--ink-2); line-height: 1.6; }

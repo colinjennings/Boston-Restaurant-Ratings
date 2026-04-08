@@ -28,7 +28,7 @@
   
 
   <!-- Title -->
-<section id="hero">
+  <section id="hero">
   <div class="intro">
 
     <p class="hero-eyebrow">DS 4200 · Information Presentation &amp; Data Visualization · Spring 2026</p>
@@ -53,64 +53,92 @@
       </div>
     </div>
 
-  </div>
-</section>
+    </div>
+    </section>
 
 
-  <!-- Overview - Topic and Research Tasks -->
-<section id="about">
-  <div class="intro">
-    <div class="section-eyebrow">
-      <span class="section-num">01</span>
-      <span class="section-label">Overview</span>
+    <!-- 01 Overview - Topic and Research Tasks -->
+    <section id="overview">
+    <div class="intro">
+        <div class="section-eyebrow">
+        <span class="section-num">01</span>
+        <span class="section-label">Overview</span>
+        </div>
+
+        <h2>Topic &amp; Research Tasks</h2>
+
+        <div class="about-grid">
+
+        <!-- Overview -->
+        <div class="about-text">
+            <p>Dining is a core component of student life, yet access to afforadable, quality food is unequal across universities, and even cities. This 
+            project explores the restaurant landscape of Boston and how their locations are distributed in relation to Northeastern Campus.</p>
+
+            <p>We ask three guiding questions: (1) Where are restaurants relative to Northeastern? (2)Does rating correlate with number of ratings? 
+            (3) Which neighborhood has the most diverse dining options?</p>
+
+            <p>Understanding these patterns can inform university planning decisions, help students 
+            make better food choices, and highlight gaps in access that may affect student well-being.</p>
+        </div>
+
+        <!-- Sidebar card -->
+        <aside class="data-card">
+            <h3>Dataset at a Glance</h3>
+
+            <div class="card-row">
+                <span class="card-label">Source:</span>
+                <span class="card-value">Google API</span>
+            </div>
+            <div class="card-row">
+                <span class="card-label">Rows:</span>
+                <span class="card-value">2,847 observations</span>
+            </div>
+            <div class="card-row">
+                <span class="card-label">Columns:</span>
+                <span class="card-value">14 features</span>
+            </div>
+            <div class="card-row">
+                <span class="card-label">Categorical:</span>
+                <span class="card-value">Cuisine, zone, price tier, meal type…</span>
+            </div>
+        </aside>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- 02 VISUALIZATIONS -->
+    <section id="visualizations">
+    <div class="intro">
+        <div class="section-eyebrow">
+            <span class="section-num">02</span>
+            <span class="section-label">Visualizations</span>
+        </div>
+
+    <h2>Exploring the Data</h2>
+
+    <div class="viz-card">
+    <div class="viz-header">
+        <span class="viz-title">Visual 1: Interactive Map of Boston</span>
+        <div class="viz-tools">
+            <span class="tag tag-altair">Altair</span>
+        </div>
     </div>
 
-    <h2>Topic &amp; Research Tasks</h2>
-
-    <div class="about-grid">
-
-      <!-- Overview -->
-      <div class="about-text">
-        <p>Dining is a core component of student life, yet access to afforadable, quality food is unequal across universities, and even cities. This 
-        project explores the restaurant landscape of Boston and how their locations are distributed in relation to Northeastern Campus.</p>
-
-        <p>We ask three guiding questions: (1) Where are restaurants relative to Northeastern? (2)Does rating correlate with number of ratings? 
-        (3) Which neighborhood has the most diverse dining options?</p>
-
-        <p>Understanding these patterns can inform university planning decisions, help students 
-        make better food choices, and highlight gaps in access that may affect student well-being.</p>
-      </div>
-
-      <!-- Sidebar card -->
-      <aside class="data-card">
-        <h3>Dataset at a Glance</h3>
-
-        <div class="card-row">
-          <span class="card-label">Source:</span>
-          <span class="card-value">Yelp API</span>
-        </div>
-        <div class="card-row">
-          <span class="card-label">Rows:</span>
-          <span class="card-value">2,847 observations</span>
-        </div>
-        <div class="card-row">
-          <span class="card-label">Columns:</span>
-          <span class="card-value">14 features</span>
-        </div>
-        <div class="card-row">
-          <span class="card-label">Categorical:</span>
-          <span class="card-value">Cuisine, zone, price tier, meal type…</span>
-        </div>
-        <div class="card-row">
-          <span class="card-label">Date range:</span>
-          <span class="card-value">2022 – 2024</span>
-        </div>
-        <div class="card-row">
-          <span class="card-label">Cleaning notes:</span>
-          <span class="card-value">Removed closed venues, imputed 3 missing price fields</span>
-        </div>
-      </aside>
-
+    <div class="viz-body">
+    <iframe 
+        src="website_output/boston_map_interactive.html" 
+        width="100%" 
+        height="600px" 
+        style="border: none; border-radius: var(--radius);">
+    </iframe>
     </div>
-  </div>
-</section>
+
+        <!-- Takeaway -->
+        <div class="viz-footer">
+            <div class="viz-takeaway-label">Takeaway</div>
+            <p class="viz-takeaway">[INSERT TAKEAWAY HERE]</p>
+        </div>
+        </div>
+</body>
+</html>
