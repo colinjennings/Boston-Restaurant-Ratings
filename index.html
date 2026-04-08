@@ -1,70 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Our Website Title
-    </title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurants of Boston · DS 4200</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />    
 </head>
-    
-<body>  
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Explore</a></li>
-                <li><a href="map.html">Map</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!--Header and search bar-->
-    <section class="hero">
-        <h1>Find Your Next Favorite Spot in Boston</h1>
-        <p>Honest reviews from locals, for locals.</p>
-        <div class="search-bar">
-            <input type="text" placeholder="Search restaurants, cuisines, neighborhoods...">
-            <button>Search</button>
+<body>
+  <!-- Navigation (moves with scroll) -->
+  <nav>
+  <div class="intro nav-inner">
+    <a href="#" class="nav-brand">Boston Dining Study</a>
+    <ul class="nav-links">
+      <li><a href="#about">Overview</a></li>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#visualizations">Visualizations</a></li>
+      <li><a href="#findings">Findings</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </div>
+  </nav>
+  
+  <!-- Overview - Topic and Research Tasks -->
+<section id="about">
+  <div class="intro">
+    <div class="section-eyebrow">
+      <span class="section-num">01</span>
+      <span class="section-label">Overview</span>
+    </div>
+
+    <h2>Topic &amp; Research Tasks</h2>
+
+    <div class="about-grid">
+
+      <!-- Overview -->
+      <div class="about-text">
+        <p>Dining is a core component of student life, yet access to afforadable, quality food is unequal across universities, and even cities. This 
+        project explores the restaurant landscape of Boston and how their locations are distributed in relation to Northeastern Campus.</p>
+
+        <p>We ask three guiding questions: (1) Where are restaurants relative to Northeastern? (2)Does rating correlate with number of ratings? 
+        (3) Which neighborhood has the most diverse dining options?</p>
+
+        <p>Understanding these patterns can inform university planning decisions, help students 
+        make better food choices, and highlight gaps in access that may affect student well-being.</p>
+      </div>
+
+      <!-- Sidebar card -->
+      <aside class="data-card">
+        <h3>Dataset at a Glance</h3>
+
+        <div class="card-row">
+          <span class="card-label">Source:</span>
+          <span class="card-value">Yelp API</span>
         </div>
-
-        <div class="Filter">
-            <span> Under 15 Mins</span>
-            <span> Rating</span>
-            <span> Price</span>
+        <div class="card-row">
+          <span class="card-label">Rows:</span>
+          <span class="card-value">2,847 observations</span>
         </div>
-    </section>
-
-    <!--Trending section and restaurant cards-->
-    <section class="Trending">
-        <h2>Trending near you</h2>
-        <div class="card-grid">
-
-            <div class="card">
-                <img src="https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ=" alt="Restaurant 1">
-                <h3>Restaurant Name 1</h3>
-                <p>Downtown | Rating: 4.5 | Price: $$</p>
-            </div>
-
-            <div class="card">
-                <img src="https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ=" alt="Restaurant 2">
-                <h3>Restaurant Name 2</h3>
-                <p>Fenway | Rating: 4.0 | Price: $</p>
-            </div>
-
-            <div class="card">
-                <img src="https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ=" alt="Restaurant 3">
-                <h3>Restaurant Name 3</h3>
-                <p>Back Bay | Rating: 4.8 | Price: $$$</p>
-            </div>
+        <div class="card-row">
+          <span class="card-label">Columns:</span>
+          <span class="card-value">14 features</span>
         </div>
-    </section>
+        <div class="card-row">
+          <span class="card-label">Categorical:</span>
+          <span class="card-value">Cuisine, zone, price tier, meal type…</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Date range:</span>
+          <span class="card-value">2022 – 2024</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Cleaning notes:</span>
+          <span class="card-value">Removed closed venues, imputed 3 missing price fields</span>
+        </div>
+      </aside>
 
-    <footer>
-        <p>Colin Jennings | Noura Alami | Evelyn Fabel</p>
-    </footer>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
+    </div>
+  </div>
+</section>
