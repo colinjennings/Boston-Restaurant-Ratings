@@ -59,6 +59,80 @@ nav {
 }
 .nav-links a:hover { color: var(--warm); }
 
+/* TITLE */
+/* Hero Section */
+#hero {
+  padding: 80px 0 64px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 24px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 28px;
+  max-width: 900px;
+}
+
+.accent {
+  color: var(--warm);
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--ink-2);
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  width: fit-content;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.stat-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 28px;
+  border-right: 1px solid var(--border);
+  background: var(--paper);
+}
+
+.stat-cell:last-child {
+  border-right: none;
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.stat-value.warm  { color: var(--warm); }
+.stat-value.green { color: var(--green); }
+
 /* 01 OVERVIEW*/
 .intro {
   max-width: 1350px;
