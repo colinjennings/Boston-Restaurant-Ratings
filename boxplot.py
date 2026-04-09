@@ -41,7 +41,7 @@ boxplot = alt.layer(hit_target, boxes).add_params(
 ).properties(width=650, height=350)
 
 # --- Scatter plot panel: price level vs rating ---
-scatter = alt.Chart(df).mark_point(filled=True, size=80).encode(
+scatter = alt.Chart(df).mark_point(filled=True, size=60).encode(
     alt.X("jittered_price:Q", title="Price Level", scale=alt.Scale(domain=[-0.5, 4.5]),
           axis=alt.Axis(values=[0, 1, 2, 3, 4], labelExpr="datum.value === 0 ? 'N/A' : datum.value")),
     alt.Y("rating:Q", title="Rating", scale=alt.Scale(domain=[3.0, 5.0])),
@@ -57,6 +57,8 @@ scatter = alt.Chart(df).mark_point(filled=True, size=80).encode(
 ).transform_calculate(
     price_display="datum.price_level == null ? 0 : datum.price_level",
     jittered_price="(datum.price_level == null ? 0 : datum.price_level) + (random() - 0.5) * 0.45"
+).transform_filter(
+    f"length(data('{click_select.name}_store')) > 0"
 ).transform_filter(
     click_select
 ).properties(
