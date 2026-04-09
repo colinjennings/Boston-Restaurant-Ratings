@@ -7,9 +7,7 @@
     body {
       font-family: "Segoe UI", sans-serif;
       background: #fafafa;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 0;
       padding: 20px;
     }
     h2 {
@@ -60,16 +58,17 @@
 
     // ── Dimensions ──────────────────────────────────────────────────────────
     const margin = { top: 40, right: 120, bottom: 60, left: 60 };
-    const W = 800, H = 500;
+    const W = document.getElementById("chart").parentElement.clientWidth || 800;
+    const H = 450;
     const w = W - margin.left - margin.right;
     const h = H - margin.top  - margin.bottom;
 
     const svg = d3.select("#chart")
-      .attr("width",  W)
-      .attr("height", H)
+      .attr("width", "100%")
+      .attr("viewBox", `0 0 ${W} ${H}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
-
     // ── Scales ──────────────────────────────────────────────────────────────
     const xPad = 3;   // padding in minutes around data range
     const xScale = d3.scaleLinear()

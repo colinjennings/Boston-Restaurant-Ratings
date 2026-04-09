@@ -208,7 +208,7 @@ section {
 /* 02 VISUALIZATION */
 .viz-card {
   background: var(--paper);
-  border: 20px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 20px;
@@ -220,6 +220,15 @@ section {
   padding: 12px 18px;
   border-bottom: 1px solid var(--border);
   background: var(--cream);
+}
+.viz-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.viz-grid .viz-card {
+  margin-bottom: 0;
 }
 .viz-title  { font-size: 13px; font-weight: 500; }
 .viz-body   { min-height: 340px; background: var(--cream); }
@@ -233,3 +242,93 @@ section {
   margin-bottom: 4px;
 }
 .viz-takeaway { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+/* 03 FINDINGS */
+.intro {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+  
+}
+
+.finding-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.finding-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+}
+.finding-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  color: var(--warm);
+  opacity: .6;
+  margin-bottom: 10px;
+}
+.finding-text { font-size: 13px; color: var(--ink-2); line-height: 1.65; }
+
+/* 04 REFERENCES */
+.intro {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+  
+}
+.ref-list  { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.ref-item  {
+  display: flex;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.ref-num   { font-family: var(--serif); font-size: 18px; color: var(--ink-3); min-width: 20px; }
+
+
+
+
+/* FOOTER */
+footer {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-brand { font-family: var(--serif); font-size: 15px; color: var(--ink-2); }
+.footer-meta  { font-size: 12px; color: var(--ink-3); }

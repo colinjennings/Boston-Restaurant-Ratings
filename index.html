@@ -108,6 +108,7 @@
     </section>
 
     <!-- 02 VISUALIZATIONS -->
+    <!-- interactive map -->
     <section id="visualizations">
     <div class="intro">
         <div class="section-eyebrow">
@@ -119,12 +120,13 @@
 
     <div class="viz-card">
     <div class="viz-header">
-        <span class="viz-title">Visual 1: Interactive Map of Boston</span>
+        <span class="viz-title">Interactive Map of Boston</span>
         <div class="viz-tools">
             <span class="tag tag-altair">Altair</span>
         </div>
     </div>
 
+    <!-- Chart  -->
     <div class="viz-body">
     <iframe 
         src="website_output/boston_map_interactive.html" 
@@ -140,5 +142,128 @@
             <p class="viz-takeaway">[INSERT TAKEAWAY HERE]</p>
         </div>
         </div>
+
+<div class="viz-grid">
+   <!-- bubble chart -->
+  <div class="viz-card">
+    <div class="viz-header">
+      <span class="viz-title">Chart Title Here</span>
+      <div class="viz-tools">
+        <span class="tag tag-altair">Altair</span>
+      </div>
+    </div>
+    <div class="viz-body">
+      <iframe 
+          src="website_output/bubble_chart.html" 
+          width="100%" 
+          height="480px" 
+          style="border: none; border-radius: var(--radius);">
+      </iframe>
+    </div>
+    <div class="viz-footer" style="padding: 10px 18px;">
+        <div class="viz-takeaway-label">Takeaway</div>
+        <p class="viz-takeaway" style="margin: 0;">[INSERT TAKEAWAY HERE]</p>
+    </div>
+  </div> 
+
+  <!-- scatter plot -->
+  <div class="viz-card">
+    <div class="viz-header">
+      <span class="viz-title">Chart Title Here</span>
+      <div class="viz-tools">
+        <span class="tag tag-altair">Altair</span>
+      </div>
+    </div>
+    <div class="viz-body">
+      <iframe 
+          src="website_output/scatter_plot.html" 
+          width="100%" 
+          height="600px" 
+          style="border: none; border-radius: var(--radius);">
+      </iframe>
+    </div>
+    <div class="viz-footer">
+      <div class="viz-takeaway-label">Takeaway</div>
+      <p class="viz-takeaway">[INSERT TAKEAWAY HERE]</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+ <!-- 03 Findings and conclusions -->
+<section id="findings">
+  <div class="intro container">
+    <div class="section-eyebrow">
+      <span class="section-num">03</span>
+      <span class="section-label">Findings and Conclusion</span>
+    </div>
+
+    <h2>What We Learned</h2>
+
+    <div class="finding-cards">
+      <div class="finding-card">
+        <div class="finding-num">01</div>
+        <p class="finding-text">[insert text]</p>
+      </div>
+      <div class="finding-card">
+        <div class="finding-num">02</div>
+        <p class="finding-text">[insert text]</p>
+      </div>
+      <div class="finding-card">
+        <div class="finding-num">03</div>
+        <p class="finding-text">[insert text]</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- References -->
+ <section id="references">
+    <div class="intro">
+        <div class="section-eyebrow">
+            <span class="section-num">04</span>
+            <span class="section-label">References</span>
+        </div>
+
+    <h2>Related Work</h2>
+
+    <ul class="ref-list">
+    <li class="ref-item">
+        <span class="ref-num">1</span>
+        <span>Author, A. (2023). <em>Paper Title.</em>
+        <a href="https://...">Link →</a></span>
+    </li>
+    </ul>
+
+    <ul class="ref-list">
+    <li class="ref-item">
+        <span class="ref-num">2</span>
+        <span>Author, A. (2023). <em>Paper Title.</em>
+        <a href="https://...">Link →</a></span>
+    </li>
+    </ul>
+
+    <ul class="ref-list">
+    <li class="ref-item">
+        <span class="ref-num">3</span>
+        <span>Author, A. (2023). <em>Paper Title.</em>
+        <a href="https://...">Link →</a></span>
+    </li>
+    </ul>
+
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-brand">Boston Dining Study</span>
+    <span class="footer-meta">
+      DS 4200 · Spring 2026 ·
+      <a href="https://github.com/colinjennings/Boston-Restaurant-Ratings">GitHub</a>
+    </span>
+  </div>
+</footer>
+
 </body>
 </html>
