@@ -3,16 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <style>
-    #vis.vega-embed {
-      width: 100%;
-      display: flex;
-    }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
 
-    #vis.vega-embed details,
-    #vis.vega-embed details summary {
-      position: relative;
-    }
-  </style>
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  #vis.vega-embed {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  #vis.vega-embed details,
+  #vis.vega-embed details summary {
+    position: relative;
+  }
+</style>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
