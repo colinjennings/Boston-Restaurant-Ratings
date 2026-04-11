@@ -17,7 +17,7 @@
   <div class="intro nav-inner">
     <a href="#" class="nav-brand">Boston Dining Study</a>
     <ul class="nav-links">
-      <li><a href="#about">Overview</a></li>
+      <li><a href="#overview">Overview</a></li>
       <li><a href="#data">Data</a></li>
       <li><a href="#visualizations">Visualizations</a></li>
       <li><a href="#findings">Findings</a></li>
@@ -28,24 +28,23 @@
   
 
   <!-- Title -->
-  <section id="hero">
+  <section id="#hero">
   <div class="intro">
 
     <p class="hero-eyebrow">DS 4200 · Information Presentation &amp; Data Visualization · Spring 2026</p>
 
     <h1>How are Dining Options distributed across Boston?</h1>
 
-    <p class="hero-sub">An analysis of dining options, accessibility, and budget-friendly patterns
-    around Northeastern's Boston campus.</p>
+    <p class="hero-sub">An analysis of restaurants focusing on transit time, price, and quality. All from the perspective of a Northeastern student. </p>
 
     <div class="hero-stats">
       <div class="stat-cell">
         <span class="stat-label">Observations</span>
-        <span class="stat-value warm">2,847</span>
+        <span class="stat-value warm">2,590</span>
       </div>
       <div class="stat-cell">
         <span class="stat-label">Features</span>
-        <span class="stat-value green">14</span>
+        <span class="stat-value green">11</span>
       </div>
       <div class="stat-cell">
         <span class="stat-label">Team</span>
@@ -67,60 +66,121 @@
 
         <h2>Topic &amp; Research Tasks</h2>
 
-        <div class="about-grid">
+     
 
         <!-- Overview -->
         <div class="about-text">
-            <p>Dining is a core component of student life, yet access to afforadable, quality food is unequal across universities, and even cities. This 
-            project explores the restaurant landscape of Boston and how their locations are distributed in relation to Northeastern Campus.</p>
+            <p>Dining and eating out is a core component of student life, yet access to affordable, quality food is perhaps unequal around 
+              universities, and more broadly, urban environments. This project explores the restaurant landscape of Boston and how their
+              locations are distributed in relation to the Northeastern campus. </p>
 
-            <p>We ask three guiding questions: (1) Where are restaurants relative to Northeastern? (2)Does rating correlate with number of ratings? 
-            (3) Which neighborhood has the most diverse dining options?</p>
+            <p>We had three questions guiding our reserch focus: 
+              
+            <ul>
+              <li>Where are restaurants relative to Northeastern?</li>
+              <li>Does rating correlate with number of ratings? </li>
+              <li>Which neighborhood has the most diverse dining options?</li>
+            </ul>
+            </p>
 
-            <p>Understanding these patterns can inform university planning decisions, help students 
-            make better food choices, and highlight gaps in access that may affect student well-being.</p>
-        </div>
+          <p> By examining these patterns, we aim to support students in eating better when going out. By focusing on transit time as a core 
+            variable, we address the fact that most students lack car access. The visualizations may help a user find that hidden
+            gem restaurant, or it may highlight an entire neighborhood that might may have previously looked out of reach. This project
+            may also help identify gaps in access that may affect student well-being.
+          </p>
 
-        <!-- Sidebar card -->
-        <aside class="data-card">
-            <h3>Dataset at a Glance</h3>
-
-            <div class="card-row">
-                <span class="card-label">Source:</span>
-                <span class="card-value">Google API</span>
-            </div>
-            <div class="card-row">
-                <span class="card-label">Rows:</span>
-                <span class="card-value">2,847 observations</span>
-            </div>
-            <div class="card-row">
-                <span class="card-label">Columns:</span>
-                <span class="card-value">14 features</span>
-            </div>
-            <div class="card-row">
-                <span class="card-label">Categorical:</span>
-                <span class="card-value">Cuisine, zone, price tier, meal type…</span>
-            </div>
-        </aside>
 
         </div>
+
     </div>
     </section>
+
+<!-- 02 Data -->
+<section id="data">
+  <div class="intro">
+    <div class="section-eyebrow">
+      <span class="section-num">02</span>
+      <span class="section-label">Data</span>
+    </div>
+
+    <h2>Dataset Overview</h2>
+
+    <div class="about-text">
+      <p>Data was collected from the Google Places API using a broad set of restaurant-related keywords to capture as many venues across Boston as possible. The raw results were then filtered by radius and by establishment type — keeping only restaurants, cafes, bars, and bakeries — which reduced the dataset from 3,106 to 2,590 entries, each with 12 features.</p>
+    </div>
+
+    <!-- Pipeline strip -->
+    <div class="data-pipeline">
+      <div class="pipe-step">
+        <span class="pipe-label">Raw pull</span>
+        <span class="pipe-val">3,106 entries</span>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step">
+        <span class="pipe-label">Radius filter</span>
+        <span class="pipe-val">Boston area only</span>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step">
+        <span class="pipe-label">Type filter</span>
+        <span class="pipe-val">Restaurant / Cafe / Bar / Bakery</span>
+      </div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step pipe-step--highlight">
+        <span class="pipe-label">Final dataset</span>
+        <span class="pipe-val">2,590 entries · 11 features</span>
+      </div>
+    </div>
+
+    <hr class="data-divider" />
+
+    <!-- Two-column feature cards -->
+    <div class="data-source-grid">
+
+      <div class="data-source-card">
+        <span class="data-badge data-badge--api">Google Places API</span>
+        <p class="data-source-title">Original fields</p>
+        <ul class="data-attr-list">
+          <li>Name <span>Restaurant name</span></li>
+          <li>Address <span>Full street address</span></li>
+          <li>Latitude / Longitude <span>Geographic coordinates</span></li>
+          <li>Rating <span>Avg. stars, 1–5</span></li>
+          <li>Review count <span>Total user reviews</span></li>
+          <li>Price level <span>$ to $$$$</span></li>
+          <li>Types <span>Associated keywords</span></li>
+          <li>Business status <span>Currently operational?</span></li>
+        </ul>
+      </div>
+
+      <div class="data-source-card">
+        <span class="data-badge data-badge--derived">Derived features</span>
+        <p class="data-source-title">Added during processing</p>
+        <ul class="data-attr-list">
+          <li>Neighborhood <span>GeoPandas + city boundary maps</span></li>
+          <li>Transit minutes <span>Google Matrix API from Krentzman Quad</span></li>
+          <li>Category flags <span>Restaurant / Bar / Bakery / Cafe (True/False each)</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- 02 VISUALIZATIONS -->
     <!-- interactive map -->
     <section id="visualizations">
     <div class="intro">
         <div class="section-eyebrow">
-            <span class="section-num">02</span>
+            <span class="section-num">03</span>
             <span class="section-label">Visualizations</span>
         </div>
 
-    <h2>Exploring the Data</h2>
+    <h2>Exploring the Visualizations</h2>
 
     <div class="viz-card">
     <div class="viz-header">
-        <span class="viz-title">Interactive Map of Boston</span>
+        <span class="viz-title">Interactive Map of Boston Restaurants</span>
         <div class="viz-tools">
             <span class="tag tag-altair">Altair</span>
         </div>
@@ -148,9 +208,9 @@
    <!-- bubble chart -->
   <div class="viz-card">
     <div class="viz-header">
-      <span class="viz-title">Chart Title Here</span>
+      <span class="viz-title">Neighborhood Popularity by Transit Time</span>
       <div class="viz-tools">
-        <span class="tag tag-altair">Altair</span>
+        <span class="tag tag-altair">D3</span>
       </div>
     </div>
     <div class="viz-body">
@@ -171,7 +231,7 @@
   <!-- transit plot -->
   <div class="viz-card">
     <div class="viz-header">
-      <span class="viz-title">Chart Title Here</span>
+      <span class="viz-title">Distribution of Transit Times to Restaurants </span>
       <div class="viz-tools">
         <span class="tag tag-altair">Altair</span>
       </div>
@@ -194,7 +254,7 @@
 
   <div class="viz-card viz-card-full">
       <div class="viz-header">
-          <span class="viz-title">Interactive Map of Boston</span>
+          <span class="viz-title">Rating vs Review Count</span>
           <div class="viz-tools">
               <span class="tag tag-altair">Altair</span>
           </div>
@@ -253,7 +313,7 @@
 <section id="findings">
   <div class="intro container">
     <div class="section-eyebrow">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <span class="section-label">Findings and Conclusion</span>
     </div>
 
@@ -281,31 +341,23 @@
  <section id="references">
     <div class="intro">
         <div class="section-eyebrow">
-            <span class="section-num">04</span>
+            <span class="section-num">05</span>
             <span class="section-label">References</span>
         </div>
 
-    <h2>Related Work</h2>
+    <h2>References</h2>
 
     <ul class="ref-list">
     <li class="ref-item">
-        <span class="ref-num">1</span>
-        <span>Author, A. (2023). <em>Paper Title.</em>
-        <a href="https://...">Link →</a></span>
+        <span class="ref-num">1</ span>
+        <span><em>The Status of Dining in Massachusetts</em>
+        <a href="https://www.researchgate.net/publication/368661267_The_status_of_Dining_in_Massachusetts">Link →</a></span>
     </li>
     </ul>
 
     <ul class="ref-list">
     <li class="ref-item">
         <span class="ref-num">2</span>
-        <span>Author, A. (2023). <em>Paper Title.</em>
-        <a href="https://...">Link →</a></span>
-    </li>
-    </ul>
-
-    <ul class="ref-list">
-    <li class="ref-item">
-        <span class="ref-num">3</span>
         <span>Author, A. (2023). <em>Paper Title.</em>
         <a href="https://...">Link →</a></span>
     </li>

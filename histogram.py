@@ -1,4 +1,3 @@
-
 import pandas as pd
 import altair as alt
 
@@ -19,7 +18,10 @@ chart = alt.Chart(df).mark_bar(opacity=0.85, cornerRadiusTopLeft=3, cornerRadius
     alt.Color(
         "price_category:N",
         title="Price Category",
-        scale=alt.Scale(scheme="tableau10")
+        scale=alt.Scale(
+            domain=['$', '$$', '$$$', '$$$$'],
+            range=['#2ca02c', '#1f77b4', '#ff7f0e', '#d62728']
+        )
     ),
     tooltip=[
         alt.Tooltip("transit_minutes:Q", bin=True, title="Transit Time Range"),
@@ -27,12 +29,6 @@ chart = alt.Chart(df).mark_bar(opacity=0.85, cornerRadiusTopLeft=3, cornerRadius
         alt.Tooltip("price_category:N", title="Price Category")
     ]
 ).properties(
-    title=alt.TitleParams(
-        text="Distribution of Transit Times to Boston Restaurants",
-        subtitle="From university, grouped by price category",
-        fontSize=16,
-        subtitleFontSize=12
-    ),
     width=600,
     height=350
 ).configure_axis(
