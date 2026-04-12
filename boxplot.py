@@ -38,7 +38,7 @@ boxes = alt.Chart(df).mark_boxplot(size=40, outliers=False).encode(
 
 boxplot = alt.layer(hit_target, boxes).add_params(
     click_select
-).properties(width=650, height=350)
+).properties(width=800, height=350)
 
 # --- Scatter plot panel: price level vs rating ---
 scatter = alt.Chart(df).mark_point(filled=True, size=60).encode(
@@ -63,8 +63,8 @@ scatter = alt.Chart(df).mark_point(filled=True, size=60).encode(
     click_select
 ).properties(
     title=alt.TitleParams(text="Price vs. Rating in Selected Neighborhood", fontSize=13),
-    width=650,
-    height=250
+    width=800,
+    height=300
 )
 
 # --- Stack vertically ---
@@ -72,16 +72,10 @@ chart = alt.vconcat(
     boxplot,
     scatter
 ).properties(
-    title=alt.TitleParams(
-        text="Restaurant Ratings by Neighborhood",
-        subtitle="Sorted by restaurant count — click a box to see price vs. rating",
-        fontSize=16,
-        subtitleFontSize=12
-    )
 ).configure_axis(
     grid=False,
     labelFontSize=11,
     titleFontSize=13
 ).configure_view(strokeWidth=0)
 
-chart.save("website_output/boxplot.html")
+chart.save("website_output/boxplot.html", embed_options={'actions': False})

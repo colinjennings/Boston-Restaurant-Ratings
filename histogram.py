@@ -29,8 +29,8 @@ chart = alt.Chart(df).mark_bar(opacity=0.85, cornerRadiusTopLeft=3, cornerRadius
         alt.Tooltip("price_category:N", title="Price Category")
     ]
 ).properties(
-    width=600,
-    height=350
+    width=1100,
+    height=500
 ).configure_axis(
     grid=False,
     labelFontSize=12,
@@ -43,4 +43,4 @@ chart = alt.Chart(df).mark_bar(opacity=0.85, cornerRadiusTopLeft=3, cornerRadius
 )
 
 
-chart.save("website_output/transit_histogram.html")
+chart.save("website_output/transit_histogram.html", embed_options={'actions': False})

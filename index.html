@@ -167,7 +167,7 @@
 </section>
 
 
-    <!-- 02 VISUALIZATIONS -->
+    <!-- 03 VISUALIZATIONS -->
     <!-- interactive map -->
     <section id="visualizations">
     <div class="intro">
@@ -199,7 +199,7 @@
         <!-- Takeaway -->
         <div class="viz-footer">
             <div class="viz-takeaway-label">Interactions</div>
-            <p class="viz-takeaway"> The map shows 2,590 restaurants located across Boston and surrounding neighborhoods, with circle colors representing the price category. Hover over any marker to see the restaurant name, star rating, and price tier. Use the slider to filter by maximum travel time from Northeastern, and the drop-down to filter by establishment type.</p>
+            <p class="viz-takeaway"> The map shows all restaurants located across Boston and surrounding neighborhoods, with circle colors representing the price category. Use click-and-drag and zoom to navigate around the map. Hover over any marker to see the restaurant name, and click to bring up a tooltip with additional info. Use the slider at the top to filter by maximum travel time from Northeastern, and use the drop-down to filter by establishment type.</p>
             <div class="viz-takeaway-label">Takeaway</div>
             <p class="viz-takeaway"> From the map, it is clear that restaurants are most densely concentrated around Northeastern's campus and the density begins to thin out towards outer neighborhoods. Budget-friendly options are widely distributed across the city, making affordable dining accessible regardless of where students are located.
 </p>
@@ -218,8 +218,8 @@
     <div class="viz-body">
       <iframe 
           src="website_output/bubble_chart.html" 
-          width="100%" 
-          height="550px" 
+          width="110%" 
+          height="475px" 
           style="border: none; border-radius: var(--radius);">
       </iframe>
     </div>
@@ -228,55 +228,26 @@
         <p class="viz-takeaway" style="margin: 0;"> The bubble chart plots each of the top 15 Boston neighborhoods by their average transit time from Northeastern on the x-axis and their average review count on the y-axis, with bubble size reflecting the total number of restaurants in that neighborhood. Hover over any bubble to see exact transit times, average review count, and total restaurant count for that neighborhood.</p>
         <div class="viz-takeaway-label">Takeaway</div>
         <p class="viz-takeaway" style="margin: 0;"> Downtown has the highest restaurant count with 195 locations, while neighborhoods like Fenway and Back Bay show higher average review counts relative to their transit time, suggesting stronger student engagement with nearby dining options. Neighborhoods requiring longer transit times seem to show smaller bubbles and lower review counts. 
-</p>
+    </p>
     </div>
     </div> 
 
-  <!-- transit plot -->
+  <!-- scatter plot  -->
   <div class="viz-card">
-    <div class="viz-header">
-      <span class="viz-title">Distribution of Transit Times to Restaurants </span>
-      <div class="viz-tools">
-        <span class="tag tag-altair">Altair</span>
-      </div>
-    </div>
-    <div class="viz-body">
-      <iframe 
-          src="website_output/transit_histogram.html" 
-          width="100%" 
-          height="550px" 
-          style="border: none; border-radius: var(--radius);">
-      </iframe>
-    </div>
-    <div class="viz-footer">
-      <div class="viz-takeaway-label">Interactions</div>
-      <p class="viz-takeaway">Hover over each bar to reveal a tooltip with the transit time range, count, and price category for that bin. They are grouped by price category using color.</p>
-      <div class="viz-takeaway-label">Takeaway</div>
-      <p class="viz-takeaway">Budget-friendly options, red and orange in the legend, make up most of the data and are spread across this entire range, meaning affordable dining is not limited to just the immediate area around campus.
-</p>
-  </div>
-  </div>
-
-
-  <div class="viz-card viz-card-full">
       <div class="viz-header">
           <span class="viz-title">Rating vs Review Count</span>
           <div class="viz-tools">
               <span class="tag tag-altair">Altair</span>
           </div>
       </div>
-
-      <!-- Chart  -->
       <div class="viz-body">
       <iframe 
           src="website_output/scatter_plot.html" 
           width="100%" 
-          height="600px" 
+          height="475px" 
           style="border: none; border-radius: var(--radius);">
       </iframe>
       </div>
-
-          <!-- Takeaway -->
           <div class="viz-footer">
               <div class="viz-takeaway-label">Interactions</div>
               <p class="viz-takeaway">The scatter plot shows the relationship between restaurant rating and number of reviews, where each point represents one restaurant and color corresponds to price level on a scale. Hover over any point to see the restaurant name, neighborhood, transit time, and price category. Use click-and-drag to zoom into any area of the chart.</p>
@@ -286,11 +257,30 @@
           </div>
           </div>
 
-
-
-
-
-
+  <!-- transit histogram -->
+  <div class="viz-card viz-card-full">
+    <div class="viz-header">
+      <span class="viz-title">Distribution of Transit Times to Restaurants</span>
+      <div class="viz-tools">
+        <span class="tag tag-altair">Altair</span>
+      </div>
+    </div>
+    <div class="viz-body">
+      <iframe 
+          src="website_output/transit_histogram.html" 
+          width="100%" 
+          height="600px" 
+          style="border: none; border-radius: var(--radius);">
+      </iframe>
+    </div>
+    <div class="viz-footer">
+      <div class="viz-takeaway-label">Interactions</div>
+      <p class="viz-takeaway">Hover over each bar to reveal a tooltip with the transit time range, count, and price category for that bin. They are grouped by price category using color.</p>
+      <div class="viz-takeaway-label">Takeaway</div>
+      <p class="viz-takeaway">Budget-friendly options, red and orange in the legend, make up most of the data and are spread across this entire range, meaning affordable dining is not limited to just the immediate area around campus.
+    </p>
+    </div>
+  </div>
 
   <!-- boxplot -->
   <div class="viz-card viz-card-full">
@@ -319,7 +309,7 @@
 </div>
 </section>
 
- <!-- 03 Findings and conclusions -->
+ <!-- 04 Findings and conclusions -->
 <section id="findings">
   <div class="intro container">
     <div class="section-eyebrow">
@@ -332,7 +322,7 @@
     <div class="finding-cards">
       <div class="finding-card">
         <div class="finding-num">01</div>
-        <p class="finding-text">Restaurant density is highest near Northeastern's campus, with neighborhoods like Fenway, Back Bay, and the South End containing the largest concentration of dining options. Students have no shortage of choices within a short transit distance.</p>
+        <p class="finding-text">Restaurant density is highest near Northeastern's campus, with neighborhoods like Fenway, Back Bay, and the South End containing the largest concentration of dining options. Students have no shortage of choices within a short transit distance. </p>
       </div>
       <div class="finding-card">
         <div class="finding-num">02</div>

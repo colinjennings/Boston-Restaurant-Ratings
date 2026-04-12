@@ -15,8 +15,7 @@ points = alt.Chart(df).mark_circle(size=60, opacity=0.6).encode(
     tooltip=['name', 'rating', 'review_count', 'price_category',
              'neighborhood', 'transit_minutes']
 ).properties(
-    title='Rating vs Number of Reviews',
-    width=600,
+    width=450,
     height=400
 ).interactive()
 
@@ -30,5 +29,5 @@ line = alt.Chart(df).mark_line(color='black', strokeDash=[5, 5]).transform_regre
 
 chart = points + line
 
-chart.save('website_output/scatter_plot.html')
+chart.save('website_output/scatter_plot.html', embed_options={'actions': False})
 
