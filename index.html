@@ -153,7 +153,7 @@
       </div>
 
       <div class="data-source-card">
-        <span class="data-badge data-badge--derived">Derived features</span>
+        <span class="data-badge data-badge--derived">Other Data Sources</span>
         <p class="data-source-title">Added during processing</p>
         <ul class="data-attr-list">
           <li>Neighborhood <span>GeoPandas + city boundary maps</span></li>
@@ -301,7 +301,7 @@
   <!-- boxplot -->
   <div class="viz-card viz-card-full">
   <div class="viz-header">
-    <span class="viz-title">Restaurant Ratings by Neighborhood</span>
+    <span class="viz-title">Restaurant Ratings and Price by Neighborhood</span>
     <div class="viz-tools">
       <span class="tag tag-altair">Altair</span>
     </div>
@@ -316,12 +316,18 @@
 
   <div class="viz-footer">
     <div class="viz-takeaway-label">Interactions</div>
-    <p class="viz-takeaway"> The top chart displays the distribution of ratings across the top 15 Boston neighborhoods by restaurant count, sorted from most (Downtown at 195) to fewest restaurants (West Cambridge at 40), with box color reflecting mean price level. Clicking on any neighborhood's box reveals a linked scatter plot below showing individual restaurants in that area by price level and rating.</p>
+    <p class="viz-takeaway">   Clicking on any neighborhood's box reveals a heat map showing distribution of restaurant pricing and rating 
+      for the neighborhood. This chart shows the distribution of ratings across the top 15 Boston neighborhoods by restaurant count, 
+      sorted from most (Downtown at 195) to fewest restaurants (West Cambridge at 40), with box color reflecting mean price level. 
+     </p>
     <div class="viz-takeaway-label">Takeaway</div>
-    <p class="viz-takeaway"> Rating distributions are fairly tight across all neighborhoods, with medians between the highest and the lowest only 0.2 stars away. It may be hard to draw generalizations from 
-      the overall quality of food in each neighborhood, but the distribution from the entire boxplot tells you that there are highly rated spots in every neighborhood. The average price (number of $) is 
-      encoded by the color of the boxplot. It suggests that Back Bay and South Boston Waterfront (Seaport) are the most expensive neighborhoods, while Jamaica Plains, Chinatown, and Roxbury are less 
-      expensive. 
+    <p class="viz-takeaway"> Rating distributions are fairly tight across all neighborhoods, with medians between the highest and the lowest only 
+      0.2 stars away. It may be hard to draw generalizations from the overall quality of food in each neighborhood, but the distribution from the 
+      entire boxplot tells you that there are highly rated spots in every neighborhood. The average price (number of $) is 
+      encoded by the color of the boxplot. It suggests that Back Bay and South Boston Waterfront (Seaport) are the most expensive neighborhoods, 
+      while Jamaica Plains, Chinatown, and Roxbury are less expensive. The heatmap shows that in many neighborhoods, there is heavy concentration
+      of restaurants in the $$ category in the 4.0 to 4.5 star range. This reinforces ideas from the histogram (that the majority of restaurants
+      fall in the $ or $$ category) and from the scatter plot of reviews, which suggests that mode of rating is 4.4 stars.
 
     </p>
   </div>

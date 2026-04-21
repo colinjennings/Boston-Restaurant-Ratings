@@ -26,7 +26,7 @@ hit_target = alt.Chart(df).mark_rect(opacity=0, tooltip=False).encode(
 
 # --- Box plot layer ---
 boxes = alt.Chart(df).mark_boxplot(size=40, outliers=False).encode(
-    alt.X("neighborhood:N", title="Neighborhood", sort=sort_order,
+    alt.X("neighborhood:N", title="Click a Neighborhood's Box", sort=sort_order,
           axis=alt.Axis(labelAngle=-35)),
     alt.Y("rating:Q", title="Rating", scale=alt.Scale(domain=[3.0, 5.0])),
     alt.Color("mean(price_level):Q", title="Mean Price Level",
@@ -43,29 +43,45 @@ boxplot = alt.layer(hit_target, boxes).add_params(
 )
 
 
-# --- Scatter plot panel: price level vs rating ---
-scatter = alt.Chart(df).mark_point(filled=True, size=60).encode(
-    alt.X("jittered_price:Q", title="Price Level", scale=alt.Scale(domain=[-0.5, 4.5]),
-          axis=alt.Axis(values=[0, 1, 2, 3, 4], labelExpr="datum.value === 0 ? 'N/A' : datum.value")),
-    alt.Y("rating:Q", title="Rating", scale=alt.Scale(domain=[3.0, 5.0])),
-    alt.Color("neighborhood:N", legend=None, scale=alt.Scale(scheme="tableau10")),
+# --- Heat map panel: price level (bin) vs rating (bin), count of restaurants ---
+heatmap = alt.Chart(df).mark_rect().encode(
+    alt.X(
+        "price_display:O",
+        title="Price Level",
+        axis=alt.Axis(labelAngle=0),
+        scale=alt.Scale(domain=[1, 2, 3, 4])
+    ),
+    alt.Y(
+        "rating_bin:O",
+        title="Rating",
+        sort="ascending",
+        scale=alt.Scale(domain=["4.75", "4.50", "4.25", "4.00", "3.75", "3.50"])
+    ),
+    alt.Color(
+        "count():Q",
+        title="# Restaurants",
+        scale=alt.Scale(scheme="tealblues", domainMin=0, domainMax=20),
+        legend=alt.Legend(orient="right", title="# Restaurants")
+    ),
     tooltip=[
-        alt.Tooltip("name:N",        title="Restaurant"),
-        alt.Tooltip("rating:Q",      title="Rating"),
-        alt.Tooltip("price_level:Q", title="Price Level"),
-        alt.Tooltip("review_count:Q", title="# Reviews"),
+        alt.Tooltip("price_display:O",  title="Price Level"),
+        alt.Tooltip("rating_bin:O",     title="Rating (bin)"),
+        alt.Tooltip("count():Q",        title="# Restaurants"),
     ]
 ).transform_filter(
-    "datum.rating > 3"
+    "datum.rating > 3.5 && datum.price_level != null && datum.price_level > 0"
 ).transform_calculate(
-    price_display="datum.price_level == null ? 0 : datum.price_level",
-    jittered_price="(datum.price_level == null ? 0 : datum.price_level) + (random() - 0.5) * 0.45"
+    price_display="datum.price_level",
+).transform_bin(
+    "rating_bin", field="rating", bin=alt.Bin(step=0.25, extent=[3.5,5.0])
+).transform_calculate(
+    rating_bin="format(datum.rating_bin, '.2f')"
 ).transform_filter(
     f"length(data('{click_select.name}_store')) > 0"
 ).transform_filter(
     click_select
 ).properties(
-    title=alt.TitleParams(text="Price vs. Rating in Selected Neighborhood", fontSize=13),
+    title=alt.TitleParams(text="Price vs. Rating Heat Map in Selected Neighborhood", fontSize=16),
     width="container",
     height=300
 )
@@ -73,8 +89,9 @@ scatter = alt.Chart(df).mark_point(filled=True, size=60).encode(
 # --- Stack vertically ---
 chart = alt.vconcat(
     boxplot,
-    scatter
-).properties(
+    heatmap
+).resolve_scale(
+    color="independent"
 ).configure_axis(
     grid=False,
     labelFontSize=14,
