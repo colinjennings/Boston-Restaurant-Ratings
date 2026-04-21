@@ -260,5 +260,5 @@ html = f"""
 """
 
 # save the HTML file
-with open("website_output/bubble_chart.html", "w", encoding="utf-8") as f:
+with open("website_output/bubble_chart_D3.html", "w", encoding="utf-8") as f:
     f.write(html)
