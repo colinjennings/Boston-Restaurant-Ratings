@@ -1,7 +1,7 @@
 import folium
 import pandas as pd
 
-df = pd.read_csv('collect_data/boston_resturants.csv')
+df = pd.read_csv('collect_data/boston_restaurants.csv')
 
 # make map centered on boston, using a different tile set
 boston_map = folium.Map(
@@ -15,13 +15,13 @@ for i, row in df.iterrows():
     price = row.get('price_category', '')
 
     if price == '$':
-        color = 'green'
+        color = '#2ca02c'
     elif price == '$$':
-        color = 'blue'
+        color = '#1f77b4'
     elif price == '$$$':
-        color = 'orange'
+        color = '#ff7f0e'
     elif price == '$$$$':
-        color = 'red'
+        color = '#d62728'
     else:
         color = 'gray'
 
@@ -30,7 +30,7 @@ for i, row in df.iterrows():
         radius=4,
         color=color,
         fill=True,
-        fill_opacity=0.6,
+        fill_opacity=0.85,
         popup=f"{row['name']} - {row['rating']} stars - {price}",
         tooltip=row['name']
     ).add_to(boston_map)

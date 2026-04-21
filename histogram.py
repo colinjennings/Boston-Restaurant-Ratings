@@ -29,7 +29,7 @@ chart = alt.Chart(df).mark_bar(opacity=0.85, cornerRadiusTopLeft=3, cornerRadius
         alt.Tooltip("price_category:N", title="Price Category")
     ]
 ).properties(
-    width=1100,
+    width="container",
     height=500
 ).configure_axis(
     grid=False,

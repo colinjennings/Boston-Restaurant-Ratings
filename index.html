@@ -175,8 +175,8 @@
             <span class="section-num">03</span>
             <span class="section-label">Visualizations</span>
         </div>
-
     <h2>Exploring the Visualizations</h2>
+
 
     <div class="viz-card">
     <div class="viz-header">
@@ -205,70 +205,11 @@
               neighborhoods. Budget-friendly options are widely distributed across the city, making affordable dining accessible regardless of where students are located. Predictably, there are fewer
               restaurants outside the city center, but by using the transit time slider, you can see how many far-away places suddenly become accessible due to them being located close to transit hubs.
               This highlights how important public transport can be in discovering new places.
-
-</p>
+            </p>
         </div>
-        </div>
-
-<div class="viz-grid">
-   <!-- bubble chart -->
-  <div class="viz-card">
-    <div class="viz-header">
-      <span class="viz-title">Neighborhood Popularity by Transit Time</span>
-      <div class="viz-tools">
-        <span class="tag tag-altair">D3</span>
-      </div>
     </div>
-    <div class="viz-body">
-      <iframe 
-          src="website_output/bubble_chart.html" 
-          width="110%" 
-          height="475px" 
-          style="border: none; border-radius: var(--radius);">
-      </iframe>
-    </div>
-    <div class="viz-footer" style="padding: 10px 18px;">
-        <div class="viz-takeaway-label">Interactions</div>
-        <p class="viz-takeaway" style="margin: 0;"> The bubble chart plots each of the top 15 Boston neighborhoods by average of transit time to restaurants from Northeastern on the x-axis and 
-          their average review count on the y-axis, with bubble size reflecting the total number of restaurants in that neighborhood. 
-          Hover over any bubble to see exact transit times, average review count, and total restaurant count for that neighborhood. </p>
-        <div class="viz-takeaway-label">Takeaway</div>
-        <p class="viz-takeaway" style="margin: 0;"> Downtown has the highest restaurant count with 195 locations, while neighborhoods like Fenway and Back Bay show higher average 
-          review counts relative to their transit time, suggesting stronger student engagement with nearby dining options. Neighborhoods requiring longer transit times seem to 
-          show smaller bubbles and lower review counts. This is likely a function of proximity to the center of the city: Northeastern is located near busy neighborhoods in the center of the city.
-          As you move further outside the center of the city, and thus also further away from campus, restaurants tend to have less reviews. 
-    </p>
-    </div>
-    </div> 
 
-  <!-- scatter plot  -->
-  <div class="viz-card">
-      <div class="viz-header">
-          <span class="viz-title">Rating vs Review Count</span>
-          <div class="viz-tools">
-              <span class="tag tag-altair">Altair</span>
-          </div>
-      </div>
-      <div class="viz-body">
-      <iframe 
-          src="website_output/scatter_plot.html" 
-          width="100%" 
-          height="475px" 
-          style="border: none; border-radius: var(--radius);">
-      </iframe>
-      </div>
-          <div class="viz-footer">
-              <div class="viz-takeaway-label">Interactions</div>
-              <p class="viz-takeaway">The scatter plot shows the relationship between restaurant rating and number of reviews, where each point represents one restaurant and color corresponds to price level on a scale. Hover over any point to see the restaurant name, neighborhood, transit time, and price category. Use click-and-drag to zoom into any area of the chart.</p>
-              <div class="viz-takeaway-label">Takeaway</div>
-              <p class="viz-takeaway">Most Boston restaurants fall between 4.0 and 4.8 stars, with review counts ranging widely from 50 to over 12,000. The dashed regression line reflects the 
-                overall trend. Higher-rated restaurants tend to have more reviews, suggesting that well-reviewed spots are generally reliable choices. It also suggests that places that are good (and perhaps
-                therefore highly rated) have been in buisness for longer to accumulate more reviews.
-</p>
-          </div>
-          </div>
-
-  <!-- transit histogram -->
+      <!-- transit histogram -->
   <div class="viz-card viz-card-full">
     <div class="viz-header">
       <span class="viz-title">Distribution of Transit Times to Restaurants</span>
@@ -295,6 +236,67 @@
     </p>
     </div>
   </div>
+
+
+  <!-- bubble plot  -->
+    <div class="viz-card">
+    <div class="viz-header">
+      <span class="viz-title">Neighborhood Popularity by Transit Time</span>
+      <div class="viz-tools">
+        <span class="tag tag-altair">D3</span>
+      </div>
+    </div>
+    <div class="viz-body">
+      <iframe 
+          src="website_output/bubble_chart.html" 
+          width="100%" 
+          height="500px" 
+          style="border: none; border-radius: var(--radius);">
+      </iframe>
+    </div>
+    <div class="viz-footer" style="padding: 10px 18px;">
+        <div class="viz-takeaway-label">Interactions</div>
+        <p class="viz-takeaway" style="margin: 0;"> The bubble chart plots each of the top 15 Boston neighborhoods by average of transit time to restaurants from Northeastern on the x-axis and 
+          their average review count on the y-axis, with bubble size reflecting the total number of restaurants in that neighborhood. 
+          Hover over any bubble to see exact transit times, average review count, and total restaurant count for that neighborhood. </p>
+        <div class="viz-takeaway-label">Takeaway</div>
+        <p class="viz-takeaway" style="margin: 0;"> Downtown has the highest restaurant count with 195 locations, while neighborhoods like Fenway and Back Bay show higher average 
+          review counts relative to their transit time, suggesting stronger student engagement with nearby dining options. Neighborhoods requiring longer transit times seem to 
+          show smaller bubbles and lower review counts. This is likely a function of proximity to the center of the city: Northeastern is located near busy neighborhoods in the center of the city.
+          As you move further outside the center of the city, and thus also further away from campus, restaurants tend to have less reviews. 
+    </p>
+    </div>
+    </div>
+
+
+  <!-- scatter plot  -->
+  <div class="viz-card">
+      <div class="viz-header">
+          <span class="viz-title">Rating vs Review Count</span>
+          <div class="viz-tools">
+              <span class="tag tag-altair">Altair</span>
+          </div>
+      </div>
+      <div class="viz-body">
+      <iframe 
+          src="website_output/scatter_plot.html" 
+          width="100%" 
+          height="475px" 
+          style="border: none; border-radius: var(--radius);">
+      </iframe>
+      </div>
+          <div class="viz-footer">
+              <div class="viz-takeaway-label">Interactions</div>
+              <p class="viz-takeaway">The scatter plot shows the relationship between restaurant rating and number of reviews, where each point represents one restaurant and color corresponds to price level on a scale. Hover over any point to see the restaurant name, neighborhood, transit time, and price category. Use click-and-drag to zoom into any area of the chart.</p>
+              <div class="viz-takeaway-label">Takeaway</div>
+              <p class="viz-takeaway">Most Boston restaurants fall between 4.0 and 4.8 stars, with review counts ranging widely from 50 to over 12,000. The dashed regression line reflects the 
+                overall trend. Higher-rated restaurants tend to have more reviews, suggesting that well-reviewed spots are generally reliable choices. It also suggests that places that are good (and perhaps
+                therefore highly rated) have been in buisness for longer to accumulate more reviews.
+              </p>
+          </div>
+    </div>
+
+
 
   <!-- boxplot -->
   <div class="viz-card viz-card-full">

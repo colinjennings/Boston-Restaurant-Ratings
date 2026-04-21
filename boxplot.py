@@ -1,10 +1,9 @@
 import pandas as pd
 import altair as alt
 
-# Load your dataset
 df = pd.read_csv("collect_data/boston_restaurants.csv")
 
-# Filter out missing neighborhoods, keep top 15 by restaurant count
+# Keep the top 15 neighborhoods by restaurant counts
 top = (
     df["neighborhood"].dropna()
     .loc[lambda s: s.str.strip() != ""]
@@ -14,8 +13,8 @@ top = (
 )
 df = df[df["neighborhood"].isin(top)]
 
-# --- Sort order: by descending restaurant count ---
-sort_order = top  # value_counts() already returns descending order
+# --- sort by descending restaurants
+sort_order = top
 
 # --- Selection ---
 click_select = alt.selection_point(fields=["neighborhood"], on="click", empty="none")
@@ -38,7 +37,11 @@ boxes = alt.Chart(df).mark_boxplot(size=40, outliers=False).encode(
 
 boxplot = alt.layer(hit_target, boxes).add_params(
     click_select
-).properties(width=800, height=350)
+).properties(
+    width="container",
+    height=350
+)
+
 
 # --- Scatter plot panel: price level vs rating ---
 scatter = alt.Chart(df).mark_point(filled=True, size=60).encode(
@@ -63,7 +66,7 @@ scatter = alt.Chart(df).mark_point(filled=True, size=60).encode(
     click_select
 ).properties(
     title=alt.TitleParams(text="Price vs. Rating in Selected Neighborhood", fontSize=13),
-    width=800,
+    width="container",
     height=300
 )
 
@@ -74,8 +77,8 @@ chart = alt.vconcat(
 ).properties(
 ).configure_axis(
     grid=False,
-    labelFontSize=11,
-    titleFontSize=13
+    labelFontSize=14,
+    titleFontSize=16
 ).configure_view(strokeWidth=0)
 
 chart.save("website_output/boxplot.html", embed_options={'actions': False})

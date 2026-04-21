@@ -85,7 +85,9 @@ html = f"""
 
     // --- Dimensions ---------------------------------------------------------------------------
     const margin = {{ top: 40, right: 120, bottom: 60, left: 60 }};
-    const W = 800, H = 500;
+    const W = window.innerWidth - 20;
+    const H = window.innerHeight - 60;
+
     const w = W - margin.left - margin.right;
     const h = H - margin.top  - margin.bottom;
 
@@ -105,14 +107,31 @@ html = f"""
       .range([0, w]);
 
     const yScale = d3.scaleLinear()
-      .domain([0, d3.max(data, d => d.avg_reviews) * 1.1])
+      .domain([325, d3.max(data, d => d.avg_reviews) ])
       .range([h, 0]);
 
     const rScale = d3.scaleSqrt()
       .domain([0, d3.max(data, d => d.count)])
       .range([8, 40]);
 
-    const color = d3.scaleOrdinal(d3.schemeTableau10)
+    const palette15 = [
+      "#2f4f4f",
+      "#8b4513",
+      "#6b8e23",
+      "#4b0082",
+      "#ff0000",
+      "#00ced1",
+      "#ffa500",
+      "#ffff00",
+      "#00ff00",
+      "#00fa9a",
+      "#0000ff",
+      "#d8bfd8",
+      "#ff00ff",
+      "#1e90ff",
+      "#ff69b4",
+    ];
+    const color = d3.scaleOrdinal(palette15)
       .domain(data.map(d => d.neighborhood));
 
     // --- Gridlines ------------------------------------------------------------------------
@@ -171,7 +190,7 @@ html = f"""
         .attr("cy", d => yScale(d.avg_reviews))
         .attr("r",  d => rScale(d.count))
         .attr("fill", d => color(d.neighborhood))
-        .attr("opacity", 0.78)
+        .attr("opacity", 0.55)
       .on("mouseover", (event, d) => {{
         tooltip
           .style("opacity", 1)
@@ -201,6 +220,7 @@ html = f"""
         .attr("fill", "black")
         .attr("font-weight", "bold")
         .attr("pointer-events", "none")
+        .attr("transform", d => `rotate(20, ${{xScale(d.avg_transit)}}, ${{yScale(d.avg_reviews) + 4}})`)
         .text(d => d.neighborhood);
 
     // --- Size legend (50, 100, 200 restaurants displayed ) ---------------------
