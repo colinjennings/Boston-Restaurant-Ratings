@@ -279,19 +279,22 @@
       </div>
       <div class="viz-body">
       <iframe 
-          src="website_output/scatter_plot.html" 
+          src="website_output/line_plot.html" 
           width="100%" 
           height="475px" 
           style="border: none; border-radius: var(--radius);">
       </iframe>
       </div>
           <div class="viz-footer">
-              <div class="viz-takeaway-label">Interactions</div>
-              <p class="viz-takeaway">The scatter plot shows the relationship between restaurant rating and number of reviews, where each point represents one restaurant and color corresponds to price level on a scale. Hover over any point to see the restaurant name, neighborhood, transit time, and price category. Use click-and-drag to zoom into any area of the chart.</p>
               <div class="viz-takeaway-label">Takeaway</div>
-              <p class="viz-takeaway">Most Boston restaurants fall between 4.0 and 4.8 stars, with review counts ranging widely from 50 to over 12,000. The dashed regression line reflects the 
-                overall trend. Higher-rated restaurants tend to have more reviews, suggesting that well-reviewed spots are generally reliable choices. It also suggests that places that are good (and perhaps
-                therefore highly rated) have been in buisness for longer to accumulate more reviews.
+              <p class="viz-takeaway"> This plot shows the average number of reviews for 
+                a restaurant of each rating, shown by the dashed line. The blue highlight is 
+                the 95% confidence interval of this mean. This shows that rating does, in fact,
+                correlate with review count. Higher rated restaurants tend to have more reviews. 
+                Interestingly, it starts dropping off after 4.5 stars. This suggests that the very
+                highly-rated restaurants may seat less people. It also suggests that very few 
+                restaurants are able to hold on to near-perfect ratings of 4.8 - 5.0 stars, 
+                and as they accumulate reviews, they will generally normalize.
               </p>
           </div>
     </div>
@@ -349,33 +352,23 @@
     <div class="finding-cards">
       <div class="finding-card">
         <div class="finding-num">01</div>
-        <p class="finding-text">Restaurant density is highest near Northeastern's campus, with neighborhoods like Fenway, Back Bay, and the South End containing the largest concentration 
-          of dining options. Students have no shortage of choices within a short transit distance. A majority of restaurants in Boston and Cambridge are availalbe within 40 minutes of travel, 
-        but even 20 minutes yields more than a hundred options. Public transport is very useful in getting to clusters of restaurants, which might be a good strategy if you want to eat out 
-      without a super definite plan. </p>
+        <p class="finding-text"> Restaurant density is very high near Northeastern due to its central location and proximity to trendy neighborhoods like Back Bay, Fenway, and Chinatown. Consequently, a majority of restaurants in Boston and Cambridge are accessible within 40 minutes of travel, but even 20 minutes of travel by public transport yields more than a hundred options. This highlights the versatility of public transit for students looking to eat out; there are a huge number of restaurants in new neighborhoods to discover if you familiarize yourself with the various subway lines and buses. 
+         </p>
       </div>
       <div class="finding-card">
         <div class="finding-num">02</div>
-        <p class="finding-text">Price level does not appear to be strongly tied to proximity to campus. Budget, mid-range, and upscale restaurants are distributed across all transit distances, 
-          meaning students on any budget can find options nearby without needing to travel far. Popular, close by neighborhoods like Downtown or Back Bay may be slightly more expensive than 
-        average, but there are a large number of restaurants at different price points within these neighborhoods. </p>
+        <p class="finding-text"> Building on the previous point, review count seems to correlate with proximity: restaurants in neighborhoods close to campus tend to have significantly more reviews. While these neighborhoods are already popular, this also suggests that student traffic meaningfully traffic. Universities like Northeastern, Boston University, Wentworth, Simmons, and Harvard Medical are all located close to each other and contribute to Boston having a student population over 150,000. These students interact with restaurants frequently and are contributing factors to nearby neighborhoods being popular. 
+        </p>
       </div>
       <div class="finding-card">
         <div class="finding-num">03</div>
-        <p class="finding-text"> Review count seems to correlate with proximity. Restaurants closer to campus tend to have significantly more reviews, suggesting that student traffic meaningfully 
-          drives online engagement. Northeastern, Boston University, Wentworth, Simmons, and the graduate schools are all located close to each other and contribute to Boston a university student 
-          population over 150,000. These student interact with restaurants frequently and are contributing factors to nearby neighborhoods being more popular. 
+        <p class="finding-text"> Generally, higher-reviewed restaurants have more reviews. This suggests that well-reviewed spots may be a good choice. Restaurants that are good tend to stay in business longer in order to accumulate more reviews. The highest-reviewed restaurants have less ratings on average. This suggests that they may be smaller establishments seating fewer people and providing a more personalized experience. It also suggests that restaurants cannot be expected to maintain a perfect rating forever. As they accumulate more reviews, the rating generally normalizes.
          </p>
       </div>
     </div>
   <div style="height: 2rem;"></div>
     <h2>Future Work</h2>
-    <p>Future work could build on takeaway #3 - we could determine if review count reflects actual visit frequency or simply represents greater awareness of nearby spots. We also do not
-      have data as to how active students are in reviewing restaurants, or what percent of customers leave a review or return. Our metric for popularity was simply average review count, so it
-      could certainly be refined through other data sources. For instance, further work might require surveying students to determine their most-visited restaurants and whether they had reviewed them
-      or shared good experince through word of mouth alone. This could be compared with the online presence of restaurants to see if more ratings actually means more students, or whether students 
-      prefer not to submit online ratings. Through more comprehensive data collection, this project could be adapted to address university students better and perhaps generate a "must try" restaurant
-      list at every price range.
+    <p> Future work could build on takeaway #2 and focus even more on the student aspect. We could determine if review count reflects actual visit frequency or simply represents greater awareness of nearby spots. We do not have data as to how active students are in reviewing restaurants, or what percent of customers leave a review or return. Our metric for popularity was simply average review count, so it could certainly be refined through other data sources. Further work might require surveying students to determine their most-visited restaurants and whether they had reviewed them or shared good experience through word of mouth alone. This could be compared with the online presence of restaurants to see if more ratings actually means more students, or whether students prefer not to submit online ratings. Through more comprehensive data collection, this project could be adapted to address university students better and perhaps generate a "must try" restaurant list at every price range. 
     </p>
 
   </div>
